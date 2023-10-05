@@ -2244,7 +2244,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Run Away",
-		desc: "Holder may switch out even when trapped by another Pokemon.",
+		desc: "This Pokemon may switch out even when trapped by another Pokemon.",
 		rating: 1,
 		num: 50,
 	},
@@ -2335,6 +2335,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		inherit: true,
 		//Actual changes made in scripts.ts as edits to useMoveInner and hitStepMoveHitLoop.
 		desc: "This Pokemon's attacks with secondary effects have their power multiplied by 1.3, but the secondary effects are removed.",
+		shortDesc: "This Pokemon's attacks with secondary effects have 1.3x power; nullifies the effects.",
 	},
 	shieldsdown: {
 		onSwitchIn(pokemon) {
@@ -2838,7 +2839,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const dazzlingHolder = this.effectState.target;
 			if ((target.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'ability: Dazzling', move, '[of] ' + source);
+				this.add('cant', source, 'ability: Dazzling', move, '[of] ' + dazzlingHolder);
 				return false;
 			}
 		},
@@ -3642,7 +3643,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const dazzlingHolder = this.effectState.target;
 			if ((target.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'ability: Majesty', move, '[of] ' + source);
+				this.add('cant', source, 'ability: Majesty', move, '[of] ' + dazzlingHolder);
 				return false;
 			}
 		},
@@ -3671,6 +3672,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	perishbody: null,
 	punkrock: null,
 	steelyspirit: null,
+	supersweetsyrup: null,
 	supremeoverlord: null,
 	transistor: null,
 	unseenfist: null,
